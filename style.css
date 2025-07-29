@@ -6,5 +6,11 @@
 #container {
     width: auto;
     display: flex;
+   
 }
+
+button {
+    align-self: center;
+}
+
 
