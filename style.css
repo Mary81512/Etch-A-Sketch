@@ -4,13 +4,21 @@
   box-sizing: border-box;
 }
 #container {
-    width: auto;
+    width: 800px;
+    height: 800px;
     display: flex;
-   
+    flex-direction: column;
 }
 
-button {
-    align-self: center;
+.gridRow {
+  display: flex;
+  flex: 1; /* Jede Zeile gleich hoch */
 }
+
+.gridItem {
+  flex: 1; /* Jede Zelle gleich breit */
+  
+}
+
 
 

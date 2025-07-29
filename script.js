@@ -1,20 +1,14 @@
-const header = document.createElement("div");
-const button = document.createElement("button");
-button.textContent = "gridsize";
-button.style.cssText = "font-size: 20px";
-document.body.insertBefore(header, container);
-header.appendChild(button);
-
-const grid16 = (() => {
-    for (let row=0 ; row < 16 ; row++) {
+const grid = ((size) => {
+    container.innerHTML = "";
+    for (let row=0 ; row < size ; row++) {
         const gridDivRow = document.createElement("div");
         gridDivRow.classList.add("gridRow");
         container.appendChild(gridDivRow);
 
-        for (let col=0 ; col < 16 ; col++) {
+        for (let col=0 ; col < size ; col++) {
             const gridDivItem = document.createElement("div");
             gridDivItem.classList.add("gridItem");
-            gridDivItem.style.cssText = "width: 50px; height: 50px; background: bisque";
+            gridDivItem.style.cssText = "background: bisque";
             gridDivItem.addEventListener('mouseenter', () => {
                 gridDivItem.style.backgroundColor = 'black';
             });
@@ -25,7 +19,7 @@ const grid16 = (() => {
     
 });
 
-grid16();
+grid(16);
 
 container.addEventListener("click", () => {
   const allItems = document.querySelectorAll(".gridItem");
@@ -33,4 +27,24 @@ container.addEventListener("click", () => {
     item.style.backgroundColor = "bisque";
   });
 });
+
+
+const header = document.createElement("div");
+const button = document.createElement("button");
+button.textContent = "gridsize";
+button.style.cssText = "font-size: 20px";
+document.body.insertBefore(header, container);
+header.appendChild(button);
+
+button.addEventListener("click", () => {
+    const userChoice = prompt("Pick a gridsize between 1 and 100");
+    const size = Number(userChoice); 
+    
+    if ( size >= 1 && size <= 100 ){
+        grid(size);
+    } else {
+        alert ("wrong number!");
+    }
+});
+
 
