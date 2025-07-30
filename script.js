@@ -9,14 +9,16 @@ const grid = ((size) => {
             const gridDivItem = document.createElement("div");
             gridDivItem.classList.add("gridItem");
             gridDivItem.style.cssText = "background: bisque";
-            gridDivItem.addEventListener('mouseenter', () => {
-                gridDivItem.style.backgroundColor = 'black';
+            gridDivItem.addEventListener('mouseenter', (e) => {
+                
+                const r = Math.floor(Math.random() * 255);
+                const g = Math.floor(Math.random() * 255);
+                const b = Math.floor(Math.random() * 255);   
+                e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
             });
-            gridDivRow.appendChild(gridDivItem);
-        
+        gridDivRow.appendChild(gridDivItem);
         }; 
     };
-    
 });
 
 grid(16);
