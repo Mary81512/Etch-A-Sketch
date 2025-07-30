@@ -39,8 +39,6 @@ container.addEventListener("click", () => {
     colorChange();
 });
 
-
-
 const header = document.createElement("div");
 const button = document.createElement("button");
 button.textContent = "gridsize";
