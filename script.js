@@ -22,11 +22,21 @@ const grid = ((size) => {
 grid(16);
 
 container.addEventListener("click", () => {
-  const allItems = document.querySelectorAll(".gridItem");
-  allItems.forEach(item => {
-    item.style.backgroundColor = "bisque";
-  });
+    const allItems = document.querySelectorAll(".gridItem");
+
+    function colorChange() {
+        var arr = []
+        for (let i = 0;i<3;i++) {
+            var random = Math.floor(Math.random() * 255)
+            arr.push(random)
+        };
+        allItems.forEach(item => {
+            item.style.backgroundColor = `rgb(${arr[0]}, ${arr[1]}, ${arr[2]})`;
+        });
+    };
+    colorChange();
 });
+
 
 
 const header = document.createElement("div");
